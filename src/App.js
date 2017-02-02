@@ -11,9 +11,18 @@ class App extends Component {
               {id: 1, name: 'Get one point', isComplete: false},
               {id: 2, name: 'Get 100 points', isComplete: true},
               {id: 3, name: 'Get 1000 points', isComplete: false}
-          ]
-      }
+          ],
+          currentTodo: ''
+     }
+     this.handleInputChange = this.handleInputChange.bind(this)
   }
+
+  handleInputChange (event) {
+      this.setState({
+          currentTodo: event.target.value
+      })
+  }
+
   render() {
     return (
       <div className="App">
@@ -22,14 +31,18 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="todo-block">
-            <input type="text" />
-            <ul>
-                {this.state.todos.map(todo =>
-                    <li key={todo.id}>
-                        <input type="checkbox" defaultChecked={todo.isComplete}/>{todo.name}
-                    </li>
-                )}
-            </ul>
+            <form>
+                <input type="text" onChange={this.handleInputChange} value={this.state.currentTodo}/>
+            </form>
+            <div className="todo-list">
+                <ul>
+                    {this.state.todos.map(todo =>
+                        <li key={todo.id}>
+                            <input type="checkbox" defaultChecked={todo.isComplete}/>{todo.name}
+                        </li>
+                    )}
+                </ul>
+            </div>
         </div>
       </div>
     );
