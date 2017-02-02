@@ -4,6 +4,6 @@ export const TodoForm = (props) => (
     <form>
         <input type="text"
             onChange={props.handleInputChange}
-            value={props.state.currentTodo}/>
+            value={props.currentTodo}/>
     </form>
 )
