@@ -1,1 +1,3 @@
-ToDo react app
+##Production quality ToDo React app
+
+**Stack:** React, ES6, API
